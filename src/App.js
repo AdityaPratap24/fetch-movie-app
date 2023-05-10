@@ -32,20 +32,16 @@ function App() {
     setLoading(false);
   },[]);
 
-  function CancelHandler(somedata){clearInterval(somedata)};
+  // function CancelHandler(somedata){clearInterval(somedata)};
 
   useEffect(()=>{
-    let data=setInterval(() => {
-      fetchMoviesHandler();
-    }, 2000);
-    return CancelHandler(data);
+    fetchMoviesHandler();
   },[fetchMoviesHandler])
 
   return (
     <React.Fragment>
       <section>
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
-        <button onClick={CancelHandler}>Cancel Request</button>
       </section>
       <section>
         {loading && <div className="spinner-border" role="status">
